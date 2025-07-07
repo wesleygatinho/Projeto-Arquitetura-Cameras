@@ -1,124 +1,88 @@
-# **Projeto P3: Arquitetura de Computadores - UFMA**
-Este repositório contém o Projeto P3 desenvolvido para a disciplina de Arquitetura de Computadores da Universidade Federal do Maranhão (UFMA).
+# **Arquitetura de Sistemas de Captura e Processamento de Imagens em Dispositivos Digitais**
 
-**Sobre o Projeto**
-Este projeto é uma aplicação desktop desenvolvida em Java Swing, focada em processamento digital de imagens (PDI) utilizando a biblioteca OpenCV. Ele implementa um pipeline de processamento que inclui etapas de pré-processamento (redução de ruído) e aprimoramento (aumento de contraste). A aplicação permite ao usuário carregar imagens, ajustar a intensidade do filtro de ruído através de um slider, executar o pipeline de processamento e salvar a imagem resultante. Um dos objetivos centrais do projeto é demonstrar e benchmarkar o desempenho do pipeline, exibindo métricas como latência de pré-processamento, latência de detecção e FPS estimado, garantindo que a interface do usuário permaneça responsiva durante as operações intensivas de processamento através do uso de SwingWorker.
+## **Visão Geral do Projeto**
 
-**Tecnologias Utilizadas**
-Linguagem de Programação: Java
+Este projeto, desenvolvido no âmbito da disciplina de Arquitetura de Computadores do curso de Bacharelado Interdisciplinar em Ciência e Tecnologia da UFMA, tem como objetivo principal investigar os elementos que compõem os sistemas digitais de captura e processamento de imagens. O foco é aprofundar o entendimento sobre a conversão analógico-digital, o pipeline de processamento e as unidades computacionais especializadas que integram os dispositivos modernos.
 
-**Bibliotecas/Frameworks: OpenCV (para processamento de imagens)**
+Para colocar a teoria em prática, foi desenvolvida uma aplicação de benchmark em Java com a biblioteca OpenCV. Este sistema permite a análise de performance de um pipeline de processamento de imagem, medindo métricas como latência e FPS, e correlacionando-as com conceitos de arquitetura de computadores.
 
-**Ambiente de Desenvolvimento (IDE): IntelliJ IDEA**
+**Repositório do Projeto:** [https://github.com/wesleygatinho/Projeto-Arquitetura-Cameras](https://github.com/wesleygatinho/Projeto-Arquitetura-Cameras)
 
-**Estrutura do Projeto**
-src/: Contém os arquivos fonte do projeto.
+## **Equipe**
 
-com.example/ImageProcessingBenchmark.java: A classe principal da aplicação, responsável pela interface gráfica (UI) em Swing, carregamento/salvamento de imagens, interação com o usuário e exibição dos resultados e métricas de desempenho. A classe interna PipelineWorker dentro deste arquivo implementa a lógica de processamento de imagem em segundo plano usando SwingWorker para evitar o congelamento da UI durante as operações do OpenCV, como denoising e ajuste de contraste.
+### **Alunos Responsáveis:**
+* Ana Patrícia Garros Viegas
+* Andre Vitor Abreu Moreira
+* Guilherme Eugenio Melo
+* João Felipe Pereira Campos
+* João José Penha Sousa
+* Maiane Serejo Gomes
+* Wesley dos Santos Gatinho
 
-out/: Diretório de saída para os arquivos compilados.
 
-.idea/: Arquivos de configuração específicos do IntelliJ IDEA.
+## **Estrutura do Repositório**
 
-lib/: (Opcional, mas comum) Se você tiver bibliotecas externas que não são gerenciadas por um sistema de build como Maven/Gradle, elas poderiam estar aqui. No seu caso, o JAR do OpenCV está sendo referenciado diretamente.
+O projeto está organizado da seguinte forma:
 
-Como Compilar e Rodar
-Para compilar e executar este projeto, você precisará ter o Java Development Kit (JDK) e o IntelliJ IDEA instalados, além das bibliotecas OpenCV configuradas.
+* **/Documentação:** Contém todos os relatórios e a documentação gerada ao longo do projeto.
+    * **RELATÓRIO 1 - TAP:** O Termo de Abertura do Projeto, que define o escopo inicial, objetivos e restrições.
+    * **RELATÓRIO 2 - Planejamento:** Apresenta a Estrutura Analítica do Projeto (EAP) e o planejamento de riscos.
+    * **RELATÓRIO 3 - Relatório de Pesquisa:** Detalha a revisão de literatura, o escopo aprofundado e os estudos iniciais.
+    * **RELATÓRIO 4 - Relatório de Engenharia:** Um relatório técnico sobre a execução e planejamento do projeto.
+    * **relatorio\_final\_tep:** O relatório final consolidado, com a metodologia, resultados de benchmark e conclusões.
+* **/src:** Contém o código-fonte da aplicação de benchmark.
+    * **ImageProcessingBenchmark.java:** A classe principal da aplicação Java/Swing que implementa a interface e o pipeline de processamento.
 
-Pré-requisitos
-JDK 24 (Oracle OpenJDK 24.0.1) ou versão compatível.
+## **Fundamentação Teórica**
 
-IntelliJ IDEA (versão Community ou Ultimate).
+O projeto se baseia em três pilares teóricos principais:
 
-OpenCV 4.1.0 (ou a versão correspondente ao opencv-4110.jar que você está usando).
+1.  **Processamento Digital de Imagens (PDI):** Envolve a manipulação de imagens por meio de algoritmos para extrair informações ou melhorar a qualidade visual. O pipeline implementado inclui etapas como pré-processamento (remoção de ruído) e realce (ajuste de contraste).
 
-Configuração no IntelliJ IDEA
-Clone o Repositório:
+2.  **Sensores e Conversores:** A captura de imagens se inicia nos **sensores CMOS**, que convertem luz em sinais elétricos. Estes sinais analógicos são então transformados em dados digitais pelos **Conversores Analógico-Digitais (ADCs)**, um passo fundamental que impacta diretamente a qualidade e a velocidade da captura.
 
-git clone [URL_DO_SEU_REPOSITORIO]
-cd Imagem
+3.  **Arquitetura de Computadores:** A performance do PDI está intrinsecamente ligada à arquitetura subjacente. Componentes como **CPU, memória e barramentos** são cruciais. A velocidade do fluxo de dados entre esses componentes, seguindo o modelo da arquitetura de von Neumann, determina a latência e a eficiência do processamento, especialmente em sistemas embarcados com recursos limitados.
 
-Abra o Projeto no IntelliJ IDEA:
+## **Aplicação de Benchmark**
 
-No IntelliJ, selecione File > Open e navegue até a pasta Imagem do projeto clonado.
+Foi desenvolvida uma ferramenta de software para simular e analisar o desempenho de um pipeline de PDI.
 
-Adicionar Dependência do OpenCV (JAR):
+### **Arquitetura do Software**
+* **Linguagem:** Java
+* **Interface Gráfica:** Swing
+* **Processamento de Imagem:** Biblioteca OpenCV
+* **Concorrência:** A classe `SwingWorker` é utilizada para executar o processamento de imagem em uma thread separada, garantindo que a interface do usuário permaneça responsiva durante operações intensivas.
 
-Vá em File > Project Structure... (Ctrl+Alt+Shift+S).
+### **Pipeline Implementado**
+O pipeline executa as seguintes etapas sequenciais:
+1.  **Carregamento da Imagem:** O usuário seleciona uma imagem do sistema de arquivos.
+2.  **Pré-processamento:** É aplicado um filtro de remoção de ruído (*fastNlMeansDenoisingColored*). A intensidade do filtro pode ser ajustada pelo usuário.
+3.  **Ajuste de Contraste:** A imagem tem seu contraste e brilho ajustados para melhorar a visualização.
 
-No menu lateral, selecione Modules.
+### **Como Executar o Projeto**
 
-Selecione o módulo Imagem.
+1.  **Pré-requisitos:**
+    * Java Development Kit (JDK) instalado.
+    * Biblioteca OpenCV configurada no seu ambiente de desenvolvimento. É necessário ter o arquivo `.jar` da biblioteca no classpath e o arquivo da biblioteca nativa (ex: `opencv_javaXXX.dll` ou `.so`) no `java.library.path`.
 
-Vá para a aba Dependencies.
+2.  **Compilação e Execução:**
+    * Compile o arquivo `ImageProcessingBenchmark.java`.
+    * Execute a classe `ImageProcessingBenchmark`. Uma janela gráfica será exibida.
 
-Clique no botão + e selecione JARs or Directories....
+3.  **Utilização:**
+    * Clique em **"Carregar Imagem"** para selecionar um arquivo.
+    * Ajuste a **"Intensidade do Filtro"** no slider.
+    * Clique em **"Executar Pipeline"** para processar a imagem.
+    * O painel **"Relatório de Desempenho"** exibirá a latência de cada etapa, a latência total e o FPS estimado em tempo real.
+    * Clique em **"Salvar Resultado"** para exportar a imagem processada.
 
-Navegue até o local do seu arquivo opencv-4110.jar (ex: C:\Users\SeuUsuario\Downloads\opencv\build\java\opencv-4110.jar) e selecione-o. Clique OK.
+## **Resultados e Análise**
 
-Certifique-se de que o escopo esteja como Compile.
+O benchmarking demonstrou que a etapa de remoção de ruído é a mais custosa computacionalmente, impactando significativamente a latência total. A análise dos resultados permitiu correlacionar diretamente o desempenho do software com a arquitetura de hardware, evidenciando como a velocidade da memória e dos barramentos são gargalos potenciais no fluxo de dados de um pipeline de PDI.
 
-Clique Apply e OK.
+## **Trabalhos Futuros**
 
-Configurar o Caminho da Biblioteca Nativa (VM Options):
-
-Vá em Run > Edit Configurations....
-
-No painel esquerdo, selecione ImageProcessingBenchmark sob Application. (Se não existir, clique em + e crie uma nova Application para a classe ImageProcessingBenchmark).
-
-Clique em Modify options e selecione Add VM options.
-
-No campo VM options que apareceu, adicione a seguinte linha, substituindo o caminho pela localização da sua pasta x64 (ou x86) que contém a DLL nativa do OpenCV (opencv_java4110.dll):
-
--Djava.library.path="C:\Users\Windows Lite BR\Downloads\opencv\build\java\x64"
-
-No campo Main class, clique no botão ... e selecione com.example.ImageProcessingBenchmark.
-
-Clique Apply e OK.
-
-Reconstruir o Projeto:
-
-Vá em Build > Rebuild Project.
-
-Executar o Projeto:
-
-Clique no botão Run (o triângulo verde) na barra de ferramentas ou no menu Run > Run 'ImageProcessingBenchmark'.
-
-Contribuição
-Este projeto foi desenvolvido como parte de um trabalho acadêmico e não está aberto para contribuições externas no momento.
-
-**Autores**
-Este trabalho foi desenvolvido em grupo por:
-
-João Felipe
-
-Ana Patrícia
-
-Wesley
-
-André Vitor
-
-José
-
-**Licença**
-MIT License
-
-Copyright (c) [Ano] [Nome(s) do(s) detentor(es) dos direitos autorais]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Como próximos passos, o projeto pode evoluir para:
+* **Testes em Hardware Real:** Implementar o pipeline em plataformas embarcadas como Raspberry Pi ou NVIDIA Jetson para validar o desempenho em um cenário prático.
+* **Integração com Sensores:** Substituir o carregamento de arquivos estáticos pela captura de imagens em tempo real a partir de um sensor CMOS.
+* **Evolução do Pipeline:** Incorporar algoritmos mais avançados baseados em redes neurais para tarefas como detecção de objetos, explorando o uso de NPUs e outras unidades de processamento especializado.
