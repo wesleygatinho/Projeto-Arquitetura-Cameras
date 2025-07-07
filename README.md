@@ -1,17 +1,17 @@
-Projeto P3: Arquitetura de Computadores - UFMA
+# **Projeto P3: Arquitetura de Computadores - UFMA**
 Este repositório contém o Projeto P3 desenvolvido para a disciplina de Arquitetura de Computadores da Universidade Federal do Maranhão (UFMA).
 
-Sobre o Projeto
+**Sobre o Projeto**
 Este projeto é uma aplicação desktop desenvolvida em Java Swing, focada em processamento digital de imagens (PDI) utilizando a biblioteca OpenCV. Ele implementa um pipeline de processamento que inclui etapas de pré-processamento (redução de ruído) e aprimoramento (aumento de contraste). A aplicação permite ao usuário carregar imagens, ajustar a intensidade do filtro de ruído através de um slider, executar o pipeline de processamento e salvar a imagem resultante. Um dos objetivos centrais do projeto é demonstrar e benchmarkar o desempenho do pipeline, exibindo métricas como latência de pré-processamento, latência de detecção e FPS estimado, garantindo que a interface do usuário permaneça responsiva durante as operações intensivas de processamento através do uso de SwingWorker.
 
-Tecnologias Utilizadas
+**Tecnologias Utilizadas**
 Linguagem de Programação: Java
 
-Bibliotecas/Frameworks: OpenCV (para processamento de imagens)
+**Bibliotecas/Frameworks: OpenCV (para processamento de imagens)**
 
-Ambiente de Desenvolvimento (IDE): IntelliJ IDEA
+**Ambiente de Desenvolvimento (IDE): IntelliJ IDEA**
 
-Estrutura do Projeto
+**Estrutura do Projeto**
 src/: Contém os arquivos fonte do projeto.
 
 com.example/ImageProcessingBenchmark.java: A classe principal da aplicação, responsável pela interface gráfica (UI) em Swing, carregamento/salvamento de imagens, interação com o usuário e exibição dos resultados e métricas de desempenho. A classe interna PipelineWorker dentro deste arquivo implementa a lógica de processamento de imagem em segundo plano usando SwingWorker para evitar o congelamento da UI durante as operações do OpenCV, como denoising e ajuste de contraste.
@@ -87,7 +87,7 @@ Clique no botão Run (o triângulo verde) na barra de ferramentas ou no menu Run
 Contribuição
 Este projeto foi desenvolvido como parte de um trabalho acadêmico e não está aberto para contribuições externas no momento.
 
-Autores
+**Autores**
 Este trabalho foi desenvolvido em grupo por:
 
 João Felipe
@@ -100,7 +100,7 @@ André Vitor
 
 José
 
-Licença
+**Licença**
 MIT License
 
 Copyright (c) [Ano] [Nome(s) do(s) detentor(es) dos direitos autorais]
