@@ -13,10 +13,8 @@ Para colocar a teoria em prática, foi desenvolvida uma aplicação de benchmark
 ### **Alunos Responsáveis:**
 * Ana Patrícia Garros Viegas
 * Andre Vitor Abreu Moreira
-* Guilherme Eugenio Melo
 * João Felipe Pereira Campos
 * João José Penha Sousa
-* Maiane Serejo Gomes
 * Wesley dos Santos Gatinho
 
 
