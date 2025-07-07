@@ -1,6 +1,6 @@
 # **Arquitetura de Sistemas de Captura e Processamento de Imagens em Dispositivos Digitais**
 
-## **Visão Geral do Projeto**
+## **Visão Geral do Projeto** 
 
 Este projeto, desenvolvido no âmbito da disciplina de Arquitetura de Computadores do curso de Bacharelado Interdisciplinar em Ciência e Tecnologia da UFMA, tem como objetivo principal investigar os elementos que compõem os sistemas digitais de captura e processamento de imagens. O foco é aprofundar o entendimento sobre a conversão analógico-digital, o pipeline de processamento e as unidades computacionais especializadas que integram os dispositivos modernos.
 
